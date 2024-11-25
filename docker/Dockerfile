@@ -37,7 +37,7 @@ RUN set -eux; \
 	;
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
-ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_ALLOW_SUPERUSER=0
 
 ENV PHP_INI_SCAN_DIR=":$PHP_INI_DIR/app.conf.d"
 
