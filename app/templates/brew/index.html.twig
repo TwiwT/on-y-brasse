@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My brews{% endblock %}
+
+{% block body %}
+<ul>
+{% for brew in brews %}
+<li>
+<a href="{{ url('app_brew_show', {id: brew.id}) }}">Brew {{brew.name}}</a>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
