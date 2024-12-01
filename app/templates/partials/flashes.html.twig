@@ -1,0 +1,7 @@
+<div class="flashes">
+    {% for type, flash in app.flashes %}
+        <div class="alert alert-{{ type }}">
+            {{ flash | join('.\n') | nl2br }}
+        </div>
+    {% endfor %}
+</div>

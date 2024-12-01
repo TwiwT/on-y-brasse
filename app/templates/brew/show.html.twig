@@ -4,5 +4,7 @@
 {% block body %}
 
     <h1>Details of your brew "{{ brew.name }}"</h1>
-
+    <div class="brew-details">
+        <a href="{{ url('app_brew_edit', {id: brew.id}) }}">Edit</a>
+    </div>
 {% endblock %}
