@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewBoiling index{% endblock %}
+
+{% block body %}
+    <h1>BrewBoiling index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_boiling in brew_boilings %}
+            <tr>
+                <td>{{ brew_boiling.id }}</td>
+                <td>
+                    <a href="{{ path('app_brew_boiling_show', {'id': brew_boiling.id}) }}">show</a>
+                    <a href="{{ path('app_brew_boiling_edit', {'id': brew_boiling.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_boiling_new') }}">Create new</a>
+{% endblock %}

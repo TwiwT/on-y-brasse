@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewMashing{% endblock %}
+
+{% block body %}
+    <h1>BrewMashing</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brew_mashing.id }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ brew_mashing.duration }}</td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td>{{ brew_mashing.details }}</td>
+            </tr>
+            <tr>
+                <th>Water</th>
+                <td>{{ brew_mashing.water }}</td>
+            </tr>
+            <tr>
+                <th>Water_rinsing</th>
+                <td>{{ brew_mashing.waterRinsing }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_mashing_index') }}">back to list</a>
+
+    <a href="{{ path('app_brew_mashing_edit', {'id': brew_mashing.id}) }}">edit</a>
+
+    {{ include('brew_mashing/_delete_form.html.twig') }}
+{% endblock %}

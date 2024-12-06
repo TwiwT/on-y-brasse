@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewMashing index{% endblock %}
+
+{% block body %}
+    <h1>BrewMashing index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Duration</th>
+                <th>Details</th>
+                <th>Water</th>
+                <th>Water_rinsing</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_mashing in brew_mashings %}
+            <tr>
+                <td>{{ brew_mashing.id }}</td>
+                <td>{{ brew_mashing.duration }}</td>
+                <td>{{ brew_mashing.details }}</td>
+                <td>{{ brew_mashing.water }}</td>
+                <td>{{ brew_mashing.waterRinsing }}</td>
+                <td>
+                    <a href="{{ path('app_brew_mashing_show', {'id': brew_mashing.id}) }}">show</a>
+                    <a href="{{ path('app_brew_mashing_edit', {'id': brew_mashing.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_mashing_new') }}">Create new</a>
+{% endblock %}

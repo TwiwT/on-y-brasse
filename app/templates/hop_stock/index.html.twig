@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HopStock index{% endblock %}
+
+{% block body %}
+    <h1>HopStock index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bought_at</th>
+                <th>Weight</th>
+                <th>Remaining_weight</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hop_stock in hop_stocks %}
+            <tr>
+                <td>{{ hop_stock.id }}</td>
+                <td>{{ hop_stock.boughtAt ? hop_stock.boughtAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ hop_stock.weight }}</td>
+                <td>{{ hop_stock.remainingWeight }}</td>
+                <td>
+                    <a href="{{ path('app_hop_stock_show', {'id': hop_stock.id}) }}">show</a>
+                    <a href="{{ path('app_hop_stock_edit', {'id': hop_stock.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hop_stock_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Hop{% endblock %}
+
+{% block body %}
+    <h1>Create new Hop</h1>
+
+    {{ include('hop/_form.html.twig') }}
+
+    <a href="{{ path('app_hop_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BrewMashingGrain{% endblock %}
+
+{% block body %}
+    <h1>Edit BrewMashingGrain</h1>
+
+    {{ include('brew_mashing_grain/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_brew_mashing_grain_index') }}">back to list</a>
+
+    {{ include('brew_mashing_grain/_delete_form.html.twig') }}
+{% endblock %}

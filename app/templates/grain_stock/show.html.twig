@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GrainStock{% endblock %}
+
+{% block body %}
+    <h1>GrainStock</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ grain_stock.id }}</td>
+            </tr>
+            <tr>
+                <th>Bought_at</th>
+                <td>{{ grain_stock.boughtAt ? grain_stock.boughtAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ grain_stock.weight }}</td>
+            </tr>
+            <tr>
+                <th>Remaining_weight</th>
+                <td>{{ grain_stock.remainingWeight }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_grain_stock_index') }}">back to list</a>
+
+    <a href="{{ path('app_grain_stock_edit', {'id': grain_stock.id}) }}">edit</a>
+
+    {{ include('grain_stock/_delete_form.html.twig') }}
+{% endblock %}

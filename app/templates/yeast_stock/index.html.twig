@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YeastStock index{% endblock %}
+
+{% block body %}
+    <h1>YeastStock index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Use_by_date</th>
+                <th>Weight</th>
+                <th>Remaining_weight</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for yeast_stock in yeast_stocks %}
+            <tr>
+                <td>{{ yeast_stock.id }}</td>
+                <td>{{ yeast_stock.useByDate ? yeast_stock.useByDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ yeast_stock.weight }}</td>
+                <td>{{ yeast_stock.remainingWeight }}</td>
+                <td>
+                    <a href="{{ path('app_yeast_stock_show', {'id': yeast_stock.id}) }}">show</a>
+                    <a href="{{ path('app_yeast_stock_edit', {'id': yeast_stock.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_yeast_stock_new') }}">Create new</a>
+{% endblock %}

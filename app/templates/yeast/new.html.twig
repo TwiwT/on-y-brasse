@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Yeast{% endblock %}
+
+{% block body %}
+    <h1>Create new Yeast</h1>
+
+    {{ include('yeast/_form.html.twig') }}
+
+    <a href="{{ path('app_yeast_index') }}">back to list</a>
+{% endblock %}

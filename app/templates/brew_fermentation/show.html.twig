@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewFermentation{% endblock %}
+
+{% block body %}
+    <h1>BrewFermentation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brew_fermentation.id }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ brew_fermentation.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_fermentation_index') }}">back to list</a>
+
+    <a href="{{ path('app_brew_fermentation_edit', {'id': brew_fermentation.id}) }}">edit</a>
+
+    {{ include('brew_fermentation/_delete_form.html.twig') }}
+{% endblock %}

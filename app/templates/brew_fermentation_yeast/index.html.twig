@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewFermentationYeast index{% endblock %}
+
+{% block body %}
+    <h1>BrewFermentationYeast index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Details</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_fermentation_yeast in brew_fermentation_yeasts %}
+            <tr>
+                <td>{{ brew_fermentation_yeast.id }}</td>
+                <td>{{ brew_fermentation_yeast.details }}</td>
+                <td>
+                    <a href="{{ path('app_brew_fermentation_yeast_show', {'id': brew_fermentation_yeast.id}) }}">show</a>
+                    <a href="{{ path('app_brew_fermentation_yeast_edit', {'id': brew_fermentation_yeast.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_fermentation_yeast_new') }}">Create new</a>
+{% endblock %}

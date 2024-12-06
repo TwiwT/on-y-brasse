@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Hop{% endblock %}
+
+{% block body %}
+    <h1>Edit Hop</h1>
+
+    {{ include('hop/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_hop_index') }}">back to list</a>
+
+    {{ include('hop/_delete_form.html.twig') }}
+{% endblock %}

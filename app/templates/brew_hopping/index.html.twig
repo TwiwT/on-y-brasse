@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewHopping index{% endblock %}
+
+{% block body %}
+    <h1>BrewHopping index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Weight</th>
+                <th>Add_at</th>
+                <th>Sort</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_hopping in brew_hoppings %}
+            <tr>
+                <td>{{ brew_hopping.id }}</td>
+                <td>{{ brew_hopping.weight }}</td>
+                <td>{{ brew_hopping.addAt }}</td>
+                <td>{{ brew_hopping.sort }}</td>
+                <td>
+                    <a href="{{ path('app_brew_hopping_show', {'id': brew_hopping.id}) }}">show</a>
+                    <a href="{{ path('app_brew_hopping_edit', {'id': brew_hopping.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_hopping_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grain{% endblock %}
+
+{% block body %}
+    <h1>Grain</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ grain.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ grain.name }}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{ grain.brand }}</td>
+            </tr>
+            <tr>
+                <th>Ebc</th>
+                <td>{{ grain.ebc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_grain_index') }}">back to list</a>
+
+    <a href="{{ path('app_grain_edit', {'id': grain.id}) }}">edit</a>
+
+    {{ include('grain/_delete_form.html.twig') }}
+{% endblock %}

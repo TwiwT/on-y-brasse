@@ -1,38 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}My brews{% endblock %}
+{% block title %}Brew index{% endblock %}
 
 {% block body %}
-<table class="table">
-    <thead>
-    <tr>
-        <td>Name</td>
-        <td>Actions</td>
-    </tr>
-    </thead>
-    <tbody>
-{% for brew in brews %}
-    <tr>
-        <td>
-            <a href="{{ url('app_brew_show', {id: brew.id}) }}">Brew {{brew.name}}</a>
-        </td>
-        <td>
-            <div class="d-flex">
-                <a href="{{ url('app_brew_edit', {id: brew.id}) }}" class="btn btn-primary">Edit</a>
-                <form action="{{ url('app_brew_delete', {id: brew.id}) }}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </td>
-    </tr>
-{% endfor %}
-    </tbody>
-    <tfoot>
-    <tr><td>
-            <a href="{{ url('app_brew_create') }}" class="btn btn-primary">New brew</a>
-        </td></tr>
-    </tfoot>
-</table>
+    <h1>Brew index</h1>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Type</th>
+                <th>Target_volume</th>
+                <th>Alcool</th>
+                <th>Density_initial</th>
+                <th>Density_final</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew in brews %}
+            <tr>
+                <td>{{ brew.id }}</td>
+                <td>{{ brew.name }}</td>
+                <td>{{ brew.createdAt ? brew.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ brew.updatedAt ? brew.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ brew.type }}</td>
+                <td>{{ brew.targetVolume }}</td>
+                <td>{{ brew.alcool }}</td>
+                <td>{{ brew.densityInitial }}</td>
+                <td>{{ brew.densityFinal }}</td>
+                <td>
+                    <a href="{{ path('app_brew_show', {'id': brew.id}) }}">show</a>
+                    <a href="{{ path('app_brew_edit', {'id': brew.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_new') }}">Create new</a>
 {% endblock %}

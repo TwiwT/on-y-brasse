@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BrewBottling{% endblock %}
+
+{% block body %}
+    <h1>Create new BrewBottling</h1>
+
+    {{ include('brew_bottling/_form.html.twig') }}
+
+    <a href="{{ path('app_brew_bottling_index') }}">back to list</a>
+{% endblock %}

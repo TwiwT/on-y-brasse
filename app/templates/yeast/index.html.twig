@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Yeast index{% endblock %}
+
+{% block body %}
+    <h1>Yeast index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Flocculation</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for yeast in yeasts %}
+            <tr>
+                <td>{{ yeast.id }}</td>
+                <td>{{ yeast.name }}</td>
+                <td>{{ yeast.flocculation }}</td>
+                <td>{{ yeast.description }}</td>
+                <td>
+                    <a href="{{ path('app_yeast_show', {'id': yeast.id}) }}">show</a>
+                    <a href="{{ path('app_yeast_edit', {'id': yeast.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_yeast_new') }}">Create new</a>
+{% endblock %}

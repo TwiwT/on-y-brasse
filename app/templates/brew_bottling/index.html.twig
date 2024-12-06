@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewBottling index{% endblock %}
+
+{% block body %}
+    <h1>BrewBottling index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sugar</th>
+                <th>Details</th>
+                <th>Final_volume</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_bottling in brew_bottlings %}
+            <tr>
+                <td>{{ brew_bottling.id }}</td>
+                <td>{{ brew_bottling.sugar }}</td>
+                <td>{{ brew_bottling.details }}</td>
+                <td>{{ brew_bottling.finalVolume }}</td>
+                <td>
+                    <a href="{{ path('app_brew_bottling_show', {'id': brew_bottling.id}) }}">show</a>
+                    <a href="{{ path('app_brew_bottling_edit', {'id': brew_bottling.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_bottling_new') }}">Create new</a>
+{% endblock %}

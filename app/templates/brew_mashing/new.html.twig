@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BrewMashing{% endblock %}
+
+{% block body %}
+    <h1>Create new BrewMashing</h1>
+
+    {{ include('brew_mashing/_form.html.twig') }}
+
+    <a href="{{ path('app_brew_mashing_index') }}">back to list</a>
+{% endblock %}

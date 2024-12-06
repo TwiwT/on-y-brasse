@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Brew {{ brew.name }}}!{% endblock %}
+
+{% block body %}
+
+    <h1>Edit your brew "{{ brew.name }}"</h1>
+
+    {{ form(form) }}
+{% endblock %}

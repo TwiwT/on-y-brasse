@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Grain{% endblock %}
+
+{% block body %}
+    <h1>Create new Grain</h1>
+
+    {{ include('grain/_form.html.twig') }}
+
+    <a href="{{ path('app_grain_index') }}">back to list</a>
+{% endblock %}

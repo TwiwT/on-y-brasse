@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewBoiling{% endblock %}
+
+{% block body %}
+    <h1>BrewBoiling</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brew_boiling.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_boiling_index') }}">back to list</a>
+
+    <a href="{{ path('app_brew_boiling_edit', {'id': brew_boiling.id}) }}">edit</a>
+
+    {{ include('brew_boiling/_delete_form.html.twig') }}
+{% endblock %}

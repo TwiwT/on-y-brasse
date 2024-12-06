@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BrewFermentation{% endblock %}
+
+{% block body %}
+    <h1>Edit BrewFermentation</h1>
+
+    {{ include('brew_fermentation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_brew_fermentation_index') }}">back to list</a>
+
+    {{ include('brew_fermentation/_delete_form.html.twig') }}
+{% endblock %}

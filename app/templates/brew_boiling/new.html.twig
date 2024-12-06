@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BrewBoiling{% endblock %}
+
+{% block body %}
+    <h1>Create new BrewBoiling</h1>
+
+    {{ include('brew_boiling/_form.html.twig') }}
+
+    <a href="{{ path('app_brew_boiling_index') }}">back to list</a>
+{% endblock %}

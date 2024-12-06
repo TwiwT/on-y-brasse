@@ -1,10 +1,54 @@
 {% extends 'base.html.twig' %}
-{% block title %}Brew {{ brew.name }}}!{% endblock %}
+
+{% block title %}Brew{% endblock %}
 
 {% block body %}
+    <h1>Brew</h1>
 
-    <h1>Details of your brew "{{ brew.name }}"</h1>
-    <div class="brew-details">
-        <a href="{{ url('app_brew_edit', {id: brew.id}) }}">Edit</a>
-    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brew.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ brew.name }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ brew.createdAt ? brew.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ brew.updatedAt ? brew.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ brew.type }}</td>
+            </tr>
+            <tr>
+                <th>Target_volume</th>
+                <td>{{ brew.targetVolume }}</td>
+            </tr>
+            <tr>
+                <th>Alcool</th>
+                <td>{{ brew.alcool }}</td>
+            </tr>
+            <tr>
+                <th>Density_initial</th>
+                <td>{{ brew.densityInitial }}</td>
+            </tr>
+            <tr>
+                <th>Density_final</th>
+                <td>{{ brew.densityFinal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_index') }}">back to list</a>
+
+    <a href="{{ path('app_brew_edit', {'id': brew.id}) }}">edit</a>
+
+    {{ include('brew/_delete_form.html.twig') }}
 {% endblock %}

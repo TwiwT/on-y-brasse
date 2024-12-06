@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrewMashingGrain index{% endblock %}
+
+{% block body %}
+    <h1>BrewMashingGrain index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Weight</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brew_mashing_grain in brew_mashing_grains %}
+            <tr>
+                <td>{{ brew_mashing_grain.id }}</td>
+                <td>{{ brew_mashing_grain.weight }}</td>
+                <td>
+                    <a href="{{ path('app_brew_mashing_grain_show', {'id': brew_mashing_grain.id}) }}">show</a>
+                    <a href="{{ path('app_brew_mashing_grain_edit', {'id': brew_mashing_grain.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_brew_mashing_grain_new') }}">Create new</a>
+{% endblock %}
